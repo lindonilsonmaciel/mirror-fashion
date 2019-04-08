@@ -33,6 +33,14 @@ header {
     color: #003366;
 }
 
+.menu-opcoes a:hover {
+    color: #007DC6;
+}
+
+.menu-opcoes a:active {
+    color: #867DC6;
+}
+
 .menu-opcoes ul li {
     display: inline;
     margin-left: 20px;
@@ -56,9 +64,36 @@ header {
     padding: 5px 10px;
 }
 
+/* por padrão essa lista vai aparecer oculta */
+.menu-departamentos li ul {
+    display: none;
+}
+
+/* Ao passar o mouse por cima ela aparece */
+.menu-departamentos li:hover ul {
+    display: block;
+}
+
+/* cores do submenu */
+.menu-departamentos ul ul li {
+    background-color: #DCDCDC;
+}
+
+/* Os carcateres entre aspas são codigos unicode */
+.menu-departamentos li li a:before {
+    content: '\2756';
+    padding-right: 3px;
+    opacity: 0.4;
+}
+
 .menu-departamentos a {
     color: #333;
     text-decoration: none;
+}
+
+.busca {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
 .busca input[type=search] {
@@ -110,17 +145,36 @@ body {
 .painel {
     margin: 10px 0;
     padding: 10;
-    width: 445px;
+    width: 455px; /* original era 445px */
+
+    /* bordas e sombras */
+    border-radius: 4px;
+    box-shadow: inset 1px 1px 4px #999;
 }
 
 .painel li {
     /* Posicionamento */
     display: inline-block;
     vertical-align: top;
-    width: 140px;
+    width: 130px; /* original era 140px */
 
     margin: 2px;
-    padding: 10px;
+    padding: 5px; /* original era 10px */
+
+    /* ao voltar ao normal ele leva 0.7 segundos para voltar ao normal */
+    transition: 0.7s ease-out;
+}
+
+/* elementos pares giram no horário e os ímpares no anti-horário */
+.painel li:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 5px #333;
+    transform: scale(1.2) rotate(-5deg);
+    transition: 0.7s ease-in;
+}
+
+.painel li:nth-child(2n):hover {
+    transform: scale(1.2) rotate(5deg);
 }
 
 .painel h2 {
@@ -129,6 +183,15 @@ body {
     text-transform: uppercase;
 
     margin-bottom: 10px;
+
+    /* bordas e sombras */
+    text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.8);
+}
+
+.painel h2::before {
+    content: '\2756';
+    padding-right: 3px;
+    opacity: 0.3;
 }
 
 .painel a {
@@ -140,12 +203,16 @@ body {
 
 .novidades {
     background-color: #F5DCDC;
+    /* gradientes */
+    background: linear-gradient(#F5DCDC, #BEBEF4);
     /* Posicionamento */
     float: left;
 }
 
 .mais-vendidos {
     background-color: #DCDCF5;
+    /* gradientes */
+    background: linear-gradient(#DCDCF5, #F4BEBE);
     /* Posicionamento */
     float: right;
 }

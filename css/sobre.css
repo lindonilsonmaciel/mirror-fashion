@@ -12,6 +12,11 @@ h1 {
 	padding: 10px;
 }
 
+/* Removendo indentação do primeiro paragráfo */
+h1 + p {
+	text-indent: 0;
+}
+
 h2 {
 	border-bottom: 2px solid #333;
 	margin: 30px;
@@ -20,6 +25,16 @@ h2 {
 p {
 	padding: 0 45px;
 	text-indent: 15px;
+}
+
+/* Primeira letra de todos os paragráfos em negrito */
+p::first-letter {
+	font-weight: bold;
+}
+
+/* todos os paragráfos que não forem precedidos por outros paragráfos ficam com a primeira linha em smapp-caps */
+:not(p) + p::first-line {
+	font-variant: small-caps;
 }
 
 /* Imagens  */
