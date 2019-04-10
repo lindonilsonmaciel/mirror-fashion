@@ -1,0 +1,117 @@
+.produto {
+    color: #333;
+    line-height: 1.3;
+    margin-top: 2em;
+}
+
+.produto h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.produto p {
+    font-size: 1.2em;
+    font-style: italic;
+    margin-bottom: 1em;
+}
+
+.produto legend {
+    display: block;
+    font: bold 0.9em/2.5 Arial;
+    text-transform: uppercase;
+}
+
+.cores {
+    position: relative;
+    padding-top: 90px;
+}
+
+/* Firefox diferencia o legend com margens a mais, por isso... */
+.cores legend {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Garantindo que a imagem nunca tenha tamanho maior do que o elemento pai */
+.cores label img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Desenhando bolinhas colordas com pseudo-elementos CSS3 */
+.cores label::after {
+    content: '';
+    display: block;
+
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    /* A bolinha acaba mudando de tamanho por causa da nova borda, por isso para corrigir... */
+    box-sizing: border-box;
+    /* Posicionamento das bolinhas */
+    position: absolute;
+    top: 30px;
+    /* Mudando o cursor para a mãozinha ao passar o mouse nas bolinhas */
+    cursor: pointer;
+}
+
+/* Usando transition */
+.cores label::after {
+    border: 6px solid rgba(0, 0, 0, 0);
+    transition: 1s;
+}
+
+/* Borda mais leve ao passar o mouse na bolinha */
+.cores label:hover::after {
+    border: 6px solid rgba(0, 0, 0, 0.1);
+}
+
+
+label[for=verde]::after {
+    background-color: #33CC66;
+    /* Deixando as bolinhas uma ao lado da outra */
+    left: 0;
+}
+
+label[for=rosa]::after {
+    background-color: #FF6666;
+    /* Deixando as bolinhas uma ao lado da outra */
+    left: 60px;
+}
+
+label[for=azul]::after {
+    background-color: #6666FF;
+    /* Deixando as bolinhas uma ao lado da outra */
+    left: 120px;
+}
+
+/* estilizar bolinha atualmente selecionada(checked) */
+.cores input:checked + label::after {
+    border: 6px solid rgba(0, 0, 0, 0.3)
+}
+
+/* Removendo o type=radio */
+.cores input[type=radio] {
+    display: none;
+}
+
+/* Escondendo as imagens dos input não selecionados */
+.cores input:not(:checked) + label img {
+    display: none;
+}
+
+.comprar {
+    background: #91BD3C;
+    border: none;
+    color: #333;
+
+    font-size: 1.4em;
+    text-transform: uppercase;
+
+    box-shadow: 0 1px 3px #777;
+
+    display: block;
+    padding: 0.5em 1em;
+    margin: 1em 0;
+}
