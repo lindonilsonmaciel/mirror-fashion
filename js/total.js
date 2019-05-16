@@ -1,7 +1,6 @@
-var $input_quantidade = document.querySelector("#qtd");
-var $output_total = document.querySelector("#total");
-
-$input_quantidade.oninput = function() {
+function verTotal() {
+    var $input_quantidade = document.querySelector("#qtd");
+    var $output_total = document.querySelector("#total");
     var preco = document.querySelector("#preco").textContent;
     preco = preco.replace("R$ ","");
     preco = preco.replace(",",".");
