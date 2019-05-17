@@ -204,6 +204,16 @@ body {
     transform: scale(1.2) rotate(5deg);
 }
 
+/* Escondendo os paineis do 7 ao 12 */
+.painel li:nth-child(n+7) {
+    display: none;
+}
+
+/* Mostrando os paineis do 7 ao 12 */
+.painel-aberto li:nth-child(n+7) {
+    display: inline-block;
+}
+
 .painel h2 {
     font-size: 24px;
     font-weight: bold;
